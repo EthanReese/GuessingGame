@@ -29,7 +29,7 @@ int main(){
 	}else{
 		//If they guess correctly, then it should trigger the win condition
 		if(guess == randInt){
-			cout << "Congratulations! You have won the game." << endl;
+			cout << "Congratulations! You have won the game in " << guessCount << " guesses" << endl;
 			cout << "Would you like to play again? (y/n)";
 			char c[1];
 			cin >> c;
