@@ -8,11 +8,11 @@ using namespace std;
 int main(){
   //Create the test for if the user wants to play again
   bool test= true;
+  srand(time(NULL));
+  int randInt;
   while(test){
-    //Seed the pseudorandom generator
-    srand((unsigned)time(NULL));
-    //Pick a random int for the user to guess between 1 and 100
-    int randInt= (rand()%101);
+	  //Pick a random int for the user to guess between 1 and 100
+    randInt = (rand()%101);
     //Check if the user has completed the game yet
     bool playing = true;
     int guessCount = 0;
@@ -29,20 +29,23 @@ int main(){
 	}else{
 		//If they guess correctly, then it should trigger the win condition
 		if(guess == randInt){
-			cout << "Congratulations! You have won the game.";
+			cout << "Congratulations! You have won the game." << endl;
 			cout << "Would you like to play again? (y/n)";
 			char c[1];
 			cin >> c;
 			//Check if they want to play again and respond appropriately
 			if(tolower(c[0]) == 'y'){
 				test = true;
+				break;
 			}
 			else{
 				test = false;
+				playing = false;
+				cout << "Thanks for playing!";
 			}
 		}
 		//If the guess is too high tell the user that
-		else if(guess>randInt){
+		else if(guess > randInt){
 			cout << "Your guess was too high" << endl;
 		}
 		//Otherwise the user's guess was too low
@@ -53,9 +56,7 @@ int main(){
 
 	}
     }
-
-    test = false;
-    
+  
   }
 
 
